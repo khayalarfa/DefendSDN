@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Detection Page</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #55cfce;
+    background: linear-gradient(#1845ad, #23a2f6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background{
+    background: linear-gradient(#2fa89d, #0099cc);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    {% comment %} max-width: 600px; {% endcomment %}
+    width: 85vw;
+    height: 60vh;
+    padding: 20px;
+
+}
+.group{
+    {% comment %} margin-bottom: 15px; {% endcomment %}
+    width: 25vw;
+    justify-self: center;
+    align-self: center;
+    padding: 10px 10px;
+}
+.res{
+    width: 35vw;
+    height: 20vh;
+    padding: 20px;
+}
+form{
+    height: 95vh;
+    width: 90vw;
+    background-color: rgba(255,255,255,0.3);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 25px 25px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    {% comment %} margin-top: 30px; {% endcomment %}
+    font-size: 17px;
+    font-weight: 700;
+    padding: 15px 4px 10px 4px;
+}
+input{
+    display: block;
+    height: 30px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 3px;
+    padding: 3px 10px;
+    {% comment %} margin-top: 8px; {% endcomment %}
+    font-size: 12px;
+    font-weight: 400;
+}
+::placeholder{
+    color: rgb(255,255,255);
+}
+button{
+    margin-top: 20px;
+    {% comment %} margin-bottom: 7px; {% endcomment %}
+    height: 40px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.2);
+    color: rgb(255,255,255);
+    padding: 10px 0px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgba(255,255,255,0.4); /* Change the background color when hovered */
+    color: rgb(255,255,255)/* Change the text color when hovered */
+}
+input:hover {
+    background-color: rgba(255,255,255,0.4); /* Change the background color when hovered */
+}
+a:hover {
+    color: #2b9998 /* Change the text color when hovered */
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        {% comment %} <div class="shape"></div>
+        <div class="shape"></div> {% endcomment %}
+    </div>
+    <form action ="" method="post">
+        <h3>Detection Portal</h3>
+        {% csrf_token %} 
+        <div class="container">
+        <div class="group">
+            <label for="Protocol">Protocol</label>
+            <input type="number" placeholder="Enter Value" id="Protocol" name="Protocol">
+    
+            <label for="FlowDuration">Flow Duration</label>
+            <input type="number" placeholder="Enter Value" id="FlowDuration" name="FlowDuration">
+
+            <label for="FPLengthTotal">FP Length</label>
+            <input type="number" placeholder="Enter Value" id="FPLengthTotal" name="FPLengthTotal">
+    
+            {% comment %} <label for="FPLengthMax">FP Length Max</label>
+            <input type="number" placeholder="Enter Value" id="FPLengthMax" name="FPLengthMax">
+
+            <label for="FPLengthMin">FP Length Min</label>
+            <input type="number" placeholder="Enter Value" id="FPLengthMin" name="FPLengthMin">
+    
+            <label for="FPLengthMean">FP Length Mean</label>
+            <input type="number" placeholder="Enter Value" id="FPLengthMean" name="FPLengthMean"> {% endcomment %}
+            <a href="{% url 'logout' %}">
+            <button type="button">LOGOUT</button>
+            </a>
+        </div>
+        <div class="group">
+            <label for="FlowBytesPers">Flow Bytes/s</label>
+            <input type="number" placeholder="Enter Value" id="FlowBytesPers" name="FlowBytesPers">
+    
+            <label for="FlowPacketsPers">Flow Packets/s</label>
+            <input type="number" placeholder="Enter Value" id="FlowPacketsPers" name="FlowPacketsPers">
+
+            <label for="FwdIATTotal">Fwd IAT Total</label>
+            <input type="number" placeholder="Enter Value" id="FwdIATTotal" name="FwdIATTotal">
+
+            {% comment %} <label for="FwdPacketsPers">Fwd Packets/s</label>
+            <input type="number" placeholder="Enter Value" id="FwdPacketsPers" name="FwdPacketsPers">
+
+            <label for="PacketLengthMin">Packet Length Min</label>
+            <input type="number" placeholder="Enter Value" id="PacketLengthMin" name="PacketLengthMin">
+    
+            <label for="PacketLengthMax">Packet Length Max</label>
+            <input type="number" placeholder="Enter Value" id="PacketLengthMax" name="PacketLengthMax"> {% endcomment %}
+
+            <button type="submit">SUBMIT</button>
+        </div>
+        <div class="group">
+            <label for="PacketLengthMean">Packet Length</label>
+            <input type="number" placeholder="Enter Value" id="PacketLengthMean" name="PacketLengthMean">
+    
+            {% comment %} <label for="ACKFlagCount">ACK Flag Count</label>
+            <input type="number" placeholder="Enter Value" id="ACKFlagCount" name="ACKFlagCount"> {% endcomment %}
+
+            <label for="AvgPacketSize">Avg Packet Size</label>
+            <input type="number" placeholder="Enter Value" id="AvgPacketSize" name="AvgPacketSize">
+    
+            <label for="AvgFwdSegmentSize">Avg Fwd Segment Size</label>
+            <input type="number" placeholder="Enter Value" id="AvgFwdSegmentSize" name="AvgFwdSegmentSize">
+
+            {% comment %} <label for="SubflowFwdBytes">Subflow Fwd Bytes</label>
+            <input type="number" placeholder="Enter Value" id="SubflowFwdBytes" name="SubflowFwdBytes"> {% endcomment %}
+    
+            {% comment %} <label for="Label">Label</label>
+            <input type="number" placeholder="Enter Value" id="Label" name="Label"> {% endcomment %}
+            <label for="SourceIP">SourceIP</label>
+            <input type="number" placeholder="Enter IP, without . " id="SourceIP" name="SourceIP">
+
+            
+        </div>
+    </div>
+    <div >
+    <div class="res">
+        <label for="Status">Status</label>
+        <input type="text" placeholder="Action" id="Status" name="Status" readonly value="{% if result %}BENIGN{% else %}ATTACK{% endif %} [{{SourceIP}}]">
+    </div>    
+    </form>
+</body>
+</html> 
